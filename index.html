@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D-TicTacToe</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onkeydown="modelUp(event), reset(event)">
+    <div id="side">
+        <div id="reset" onclick="scoreReset()">RESET</div>
+        <div id="blue-score">0</div>
+        <div id="red-score">0</div>
+    </div>
+    
+    <div class="cube"></div>
+    <div id="dimension">
+        <div id="dimension-3" onclick="setDimension(this)">3x3x3</div>
+        <div id="dimension-4" onclick="setDimension(this)">4x4x4</div>
+    </div>
+    
+</body>
+</html>
