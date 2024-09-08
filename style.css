@@ -3,308 +3,98 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 98vh;
-    overflow: hidden;
-    --width: 70vw;
-    user-select: none
+    min-height: 97vh;
+    --size: 70vw;
+}
+
+div.cube {
+    width: calc(var(--size)*0.3);
+    height: calc(var(--size)*0.3);
+    transform-style: preserve-3d;
+    position: relative;
+    transform: rotateX(-90deg);
     
 }
-.cube {
-    width: var(--width);
-    height: calc(var(--width)*0.3);
-    position: relative;
-    left: calc(var(--width)*-0.076);
+div.layer {
+    position: absolute;
+    height: calc(var(--size)*0.3);
+    width: calc(var(--size)*0.3);
+    transform-style: inherit;
+    display: grid;
+    grid-template-columns: repeat(3, calc(var(--size)*0.1));
+    grid-template-rows: repeat(3, calc(var(--size)*0.1));
+    grid-gap: 0px
 }
 
-div[class*="-layer"] {
-    position: absolute;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto auto;
-    width: calc(var(--width)*0.3);
-    height: calc(var(--width)*0.3);
-    transform-style: preserve-3d;
+div#layer0 {
+    transform: translateY(calc(var(--size)*0.1)) rotateX(90deg);
+    left: calc(var(--size)*-0.4)
 }
-.third-layer-3 {
-    left: calc(var(--width)*0.7)
+div#layer1 {
+        transform: rotateX(90deg)
 }
-.second-layer-3 {
-    left: calc(var(--width)*0.35)
+div#layer2 {
+    transform: translateY(calc(var(--size)*-0.1)) rotateX(90deg);
+    right: calc(var(--size)*-0.4)
 }
 
-.first-layer-4 {
-    left: calc(var(--width)*0.15);
-    top: calc(var(--width)*-0.20);
-}
-.second-layer-4 {
-    left: calc(var(--width)*0.55);
-    top: calc(var(--width)*-0.20);
-}
-.third-layer-4 {
-    left: calc(var(--width)*0.15);
-    top: calc(var(--width)*0.20);
-}
-.fourth-layer-4 {
-    left: calc(var(--width)*0.55);
-    top: calc(var(--width)*0.20);
+div.block {
+    color: white;
+    font-size: 200%;
+    transform-style: preserve-3d
 }
 
-
-.layer-transition {
-    transform-style: preserve-3d;
-    transform: rotateX(70deg) rotateZ(30deg);
-    transition: transform 0.5s linear
-}
-.first-layer-transition-3 {
+div.side {
+    width: calc(var(--size)*0.1);
+    height:calc(var(--size)*0.1);
     position: absolute;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto auto;
-    width: calc(var(--width)*0.3);
-    height: calc(var(--width)*0.3);
-    transform-style: preserve-3d;
-    transform: translateX(calc(var(--width)*0.35)) translateZ(calc(var(--width)*-0.1));
-    transition: transform 1s linear
-}
-.first-layer-transited-3 {
-    position: absolute;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto auto;
-    width: calc(var(--width)*0.3);
-    height: calc(var(--width)*0.3);
-    transform-style: preserve-3d;
-    transform: translateX(calc(var(--width)*0.35)) translateZ(calc(var(--width)*-0.1));
-}
-.third-layer-transition-3 {
-    position: absolute;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto auto;
-    width: calc(var(--width)*0.3);
-    height: calc(var(--width)*0.3);
-    transform-style: preserve-3d;
-    transform: translateX(calc(var(--width)*-0.35)) translateZ(calc(var(--width)*0.1));
-    transition: transform 1s linear
-}
-.third-layer-transited-3 {
-    position: absolute;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto auto;
-    width: calc(var(--width)*0.3);
-    height: calc(var(--width)*0.3);
-    transform-style: preserve-3d;
-    transform: translateX(calc(var(--width)*-0.35)) translateZ(calc(var(--width)*0.1));
-}
-
-
-.first-layer-transition-4 {
-    position: absolute;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto auto;
-    width: calc(var(--width)*0.3);
-    height: calc(var(--width)*0.3);
-    transform-style: preserve-3d;
-    transform: translateX(calc(var(--width)*0.20)) translateY(calc(var(--width)*0.25)) translateZ(calc(var(--width)*-0.1125));
-    transition: transform 1s linear
-}
-.first-layer-transited-4 {
-    position: absolute;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto auto;
-    width: calc(var(--width)*0.3);
-    height: calc(var(--width)*0.3);
-    transform-style: preserve-3d;
-    transform: translateX(calc(var(--width)*0.20)) translateY(calc(var(--width)*0.25)) translateZ(calc(var(--width)*-0.1125));
-}
-.second-layer-transition-4 {
-    position: absolute;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto auto;
-    width: calc(var(--width)*0.3);
-    height: calc(var(--width)*0.3);
-    transform-style: preserve-3d;
-    transform: translateX(calc(var(--width)*-0.201)) translateY(calc(var(--width)*0.25)) translateZ(calc(var(--width)*-0.0375));
-    transition: transform 1s linear
-}
-
-.second-layer-transited-4 {
-    position: absolute;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto auto;
-    width: calc(var(--width)*0.3);
-    height: calc(var(--width)*0.3);
-    transform-style: preserve-3d;
-    transform: translateX(calc(var(--width)*-0.201)) translateY(calc(var(--width)*0.25)) translateZ(calc(var(--width)*-0.0375));
-}
-.third-layer-transition-4 {
-    position: absolute;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto auto;
-    width: calc(var(--width)*0.3);
-    height: calc(var(--width)*0.3);
-    transform-style: preserve-3d;
-    transform: translateX(calc(var(--width)*0.20)) translateY(calc(var(--width)*-0.15)) translateZ(calc(var(--width)*0.0375));
-    transition: transform 1s linear
-}
-
-.third-layer-transited-4 {
-    position: absolute;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto auto;
-    width: calc(var(--width)*0.3);
-    height: calc(var(--width)*0.3);
-    transform-style: preserve-3d;
-    transform: translateX(calc(var(--width)*0.20)) translateY(calc(var(--width)*-0.15)) translateZ(calc(var(--width)*0.0375));
-}
-.fourth-layer-transition-4 {
-    position: absolute;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto auto;
-    width: calc(var(--width)*0.3);
-    height: calc(var(--width)*0.3);
-    transform-style: preserve-3d;
-    transform: translateX(calc(var(--width)*-0.20)) translateY(calc(var(--width)*-0.15)) translateZ(calc(var(--width)*0.1125));
-    transition: transform 1s linear
-}
-
-.fourth-layer-transited-4 {
-    position: absolute;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto auto;
-    width: calc(var(--width)*0.3);
-    height: calc(var(--width)*0.3);
-    transform-style: preserve-3d;
-    transform: translateX(calc(var(--width)*-0.20)) translateY(calc(var(--width)*-0.15)) translateZ(calc(var(--width)*0.1125));
-}
-
-.rotate-animated {
-    animation: rotateCube 6s linear infinite
-}
-
-@keyframes rotateCube {
-    0% {transform: rotateX(70deg) rotateZ(30deg)}
-    100% {transform: rotateX(70deg) rotateZ(390deg) }
-}
-
-.block {
-    position: static;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-}
-.block > span {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+    top: 0;
+    left: 0;
     border: 1px solid white;
+    border-radius: 4px
 }
 
-#bottom-signs {
-    position: absolute;
-    width: calc(var(--width)*0.625);
-    height: calc(var(--width)*0.1375);
-    bottom: calc(var(--width)*-0.1875);
-    left: calc(var(--width)*0.1875);
+div.side.top {
+    transform:  rotateX(90deg) translateY(calc(var(--size)*0.1)) rotateX(-90deg);
+    
+}
+div.side.front {
+    transform: translateY(calc(var(--size)*0.1*0.5)) rotateX(90deg) translateY(calc(var(--size)*0.1*0.5));
+}
+div.side.back {
+    transform: translateY(calc(var(--size)*0.1*-0.5)) rotateX(90deg) translateY(calc(var(--size)*0.1*0.5));
+}
+div.side.left {
+    transform: translateX(calc(var(--size)*0.1*0.5)) rotateX(90deg) rotateY(90deg) translateY(calc(var(--size)*0.1*0.5))
+}
+div.side.right {
+    transform: translateX(calc(var(--size)*0.1*-0.5)) rotateX(90deg) rotateY(90deg) translateY(calc(var(--size)*0.1*0.5))
 }
 
-#turn {
-    position: absolute;
-    width: 100%;
-    height: calc(var(--width)*0.0375);
+@keyframes spin {
+    0% {transform: rotateX(-15deg) rotateY(20deg);}
+    100% {transform: rotateX(-15deg) rotateY(380deg);}
+}
+div.cube.folded {
+    transform: rotateX(-15deg) rotateY(20deg);
+    transition: transform 0.5s linear 1s;
+    animation: spin linear 6s infinite;
+    animation-delay: 1.5s
+}
+
+div.cube.folded div#layer0 {
+    left: 0;
+    transition: left 1s ease-in
+}
+
+div.cube.folded div#layer2 {
+    right: 0;
+    transition: right 1s ease-in
+}
+
+div.cube div.layer div.block.chosen-player1 .side {
     background-color: blue;
-    border-radius: calc(var(--width)*0.025);
-    box-shadow: 0 0 10px 5px blue
 }
-#clock {
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
-    font-size: calc(var(--width)*0.065)
-}
-
-.bottom-position-4 {
-    bottom: calc(var(--width)*-0.38) !important;
-    left: calc(var(--width)*0.1875);
-}
-
-
-div[id$="label"] {
-    position: absolute;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: calc(var(--width)*0.0375);
-    white-space: nowrap;
-    left: calc(var(--width)*0.088);
-    top: calc(var(--width)*-0.05);
-}
-
-#side {
-    position: relative;
-    width: calc(var(--width)*0.15);
-    height: calc(var(--width)*0.20);
-    left: calc(var(--width)*-0.1);
-    font-family: Arial
-
-}
-div[id$="score"] {
-    position: absolute;
-    height: calc(var(--width)*0.05);
-    width: 100%;
-    background: blue;
-    border-radius: 1px;
-    color: white;
-    font-size: calc(var(--width)*0.04);
-    line-height: calc(var(--width)*0.05);
-    text-align: center;
-    bottom: calc(var(--width)*0.06)
-}
-#red-score {
-    background: red;
-    bottom: 0px
-   
-}
-#reset {
-    background: #333;
-    width: 100%;
-    height: calc(var(--width)*0.07);
-    font-size: calc(var(--width)*0.025);
-    color: white;
-    line-height: calc(var(--width)*0.07);
-    text-align: center
-}
-#reset:hover {
-    background: #444
-}
-#dimension {
-    position: absolute;
-    width: calc(var(--width)*0.15);
-    height: calc(var(--width)*0.20);
-    right: calc(var(--width)*0.04);
-    font-family: Arial;
-}
-#dimension div {
-    position: absolute;
-    width: 100%;
-    height: calc(var(--width)*0.095);
-    background: #333;
-    color: white;
-    line-height: calc(var(--width)*0.095);
-    text-align: center;
-    font-size: calc(var(--width)*0.03)
-}
-#dimension-4 {
-    bottom: 0px
+div.cube div.layer div.block.chosen-player2 .side {
+    background-color: red;
 }
